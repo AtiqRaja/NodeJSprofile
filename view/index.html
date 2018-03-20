@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--  <link rel="shortcut icon" href="assets/ico/favicon.png"> 
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+-->
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+<script src="/pwCheckDirective.js"></script>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+<body ng-app="forbode">
+
+    <!-- Top content -->
+    <div class="top-content">
+
+        <div class="inner-bg">
+            <div class="container">
+
+
+                <div class="row">
+                    <div class="col-sm-5">
+
+                        <div class="form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>Login </h3>
+
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                <form role="form" action="/project/signin" method="post" class="login-form">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-username">Username</label>
+                                        <input type="text" name="username" placeholder="Username..." class="form-username form-control" id="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">Password</label>
+                                        <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="password">
+                                    </div>
+                                    <button type="submit" class="btn">Sign in!</button>
+                                </form>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="col-sm-1 middle-border"></div>
+                    <div class="col-sm-1"></div>
+
+                    <div class="col-sm-5">
+
+                        <div class="form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>Sign up </h3>
+
+                                </div>
+
+                            </div>
+                            <div class="form-bottom">
+                                <form name="testForm" role="form" action="/project/signup" method="post" class="registration-form" ng-controller="testController">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-first-name">Username</label>
+                                        <input type="text" name="username" placeholder="Username..." class="form-first-name form-control" id="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-email">Email</label>
+                                        <input type="email" name="email" placeholder="Email..." class="form-email form-control" id="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">Password</label>
+
+                                        <input type="password" ng-model="password" name="password" pw-check="confirmPassword" placeholder="Password..." class="form-pass form-control" id="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">Confirm_Password</label>
+
+                                        <input type="password" name="confirmPassword" placeholder="confirm password..." class="form-repass form-control" id="confirmPassword" ng-model="confirmPassword">
+
+                                    </div>
+                                    <span class="error" ng-show="testForm.password.$error.pwmatch"> Passwords don't match. </span>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-desigation">designation</label>
+                                        <input type="text" name="designation" placeholder="Designation..." class="form-designation form-control" id="designation">
+
+                                    </div>
+                                    <button type="submit" class="btn">Sign me up!</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+
+
+
+            </div>
+        </div>
+    </footer>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js">
+    </script>
+
+    <style>
+        #form label {
+            float: left;
+            width: 140px;
+        }
+        
+        #error_msg {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            var $submitBtn = $("#form input[type='submit']");
+            var $passwordBox = $("#password");
+            var $confirmBox = $("#confirm_password");
+            var $errorMsg = $('<span id="error_msg">Passwords do not match.</span>');
+
+            // This is incase the user hits refresh - some browsers will maintain the disabled state of the button.
+            $submitBtn.removeAttr("disabled");
+
+            function checkMatchingPasswords() {
+                if ($confirmBox.val() != "" && $passwordBox.val != "") {
+                    if ($confirmBox.val() != $passwordBox.val()) {
+                        $submitBtn.attr("disabled", "disabled");
+                        $errorMsg.insertAfter($confirmBox);
+                    }
+                }
+            }
+
+            function resetPasswordError() {
+                $submitBtn.removeAttr("disabled");
+                var $errorCont = $("#error_msg");
+                if ($errorCont.length > 0) {
+                    $errorCont.remove();
+                }
+            }
+
+
+            $("#confirm_password, #password")
+                .on("keydown", function(e) {
+                    /* only check when the tab or enter keys are pressed
+                     * to prevent the method from being called needlessly  */
+                    if (e.keyCode == 13 || e.keyCode == 9) {
+                        checkMatchingPasswords();
+                    }
+                })
+                .on("blur", function() {
+                    // also check when the element looses focus (clicks somewhere else)
+                    checkMatchingPasswords();
+                })
+                .on("focus", function() {
+                    // reset the error message when they go to make a change
+                    resetPasswordError();
+                })
+
+        });
+    </script>
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE>
+<html ng-app>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>html</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/form-elements.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='//fonts.googleapis.com/css?family=Gudea:400,700' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            background-image: url("/1.jpg");
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <style>
+        article,
+        aside,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/pwCheckDirective.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <header class="container-fluid">
+    </header>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color: " #0a112b ";">
+        <a class="navbar-brand" href="#" style="padding:0px;margin-left: 100;">
+
+        </a>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav">
+                <li><a href="" class="active">Profile</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="/index.html">Logout</a></li>
+
+
+            </ul>
+        </div>
+    </nav>
+    <form ng-controller='appController' ng-init="send()">
+
+
+        <div class="profile">
+            <div class="wrap">
+                <div class="profile-main">
+                    <div class="profile-pic wthree">
+                        <img style=" width:100;height:150" src="/{{response.data.image}}" alt="">
+                        <h2>{{response.data.username}}</h2>
+                        <p>{{response.data.designation}}</p>
+                        <img style="
+    margin-left: 300;width:40px;height:40px
+" src="/edit.png" data-toggle="modal" data-target="#myModal1"></img>
+                    </div>
+                    <div class="active w3">
+                        <h4>Activity Level : 85%</h4>
+                        <p>{{response.data.email}}</p>
+                    </div>
+                    <div class="profile-ser">
+                        <div class="profile-ser-grids">
+                            <img src="/msg.png" alt="">
+                            <h4>1086</h4>
+                        </div>
+                        <div class="profile-ser-grids agileinfo">
+                            <img src="/p2.png" alt="">
+                            <h4>1582</h4>
+                        </div>
+                        <div class="profile-ser-grids no-border">
+                            <img src="/p3.png" alt="">
+                            <h4>1468</h4>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+
+                    <div class="profile-follows">
+                        <ul>
+                            <li>
+                                <a href="#" class="fa"> </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tw"> </a>
+                            </li>
+                            <li>
+                                <a href="#" class="ins"> </a>
+                            </li>
+                            <li>
+                                <a href="#" class="you"> </a>
+                            </li>
+                        </ul>
+                        <div class="follow-btn">
+                            <a href="#">Follow</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Change Password</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Password</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="/project/updatepass" method="post" class="pass-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-username">Password</label>
+                            <input type="text" name="oldpass" placeholder="Old Password..." class="form-username form-control" id="oldpassword">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-password">New Password</label>
+                            <input type="password" name="newpass" placeholder="New Password..." class="form-password form-control" id="newpassword">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-password">Confirm Password</label>
+                            <input type="password" name="confirmpass" placeholder="Confirm Password..." class="form-password form-control" id="newpassword">
+                        </div>
+                        <button type="submit" class="btn">Confirm!</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="/project/updateprofile" method="post" class="pass-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-username">User Name</label>
+                            <input type="text" name="username" placeholder="User Name..." class="form-username form-control" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-email">Email</label>
+                            <input type="email" name="email" placeholder="Email..." class="form-password form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-designation">Confirm Password</label>
+                            <input type="text" name="designation" placeholder="Designation..." class="form-password form-control" id="designation">
+                        </div>
+                        <button type="submit" class="btn">Confirm!</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <form role="form" action="/project/upload" method="post" class="login-form">
+
+        <div ng-app="plunkr">
+            <div ng-controller="UploadController ">
+
+                <input type="file" ng-file-select="onFileSelect($files)" ng-model="imageSrc" name="file" class="btn btn-info btn-sm">
+                <!--  <input type="file" ng-file-select="onFileSelect($files)" multiple> -->
+
+
+                <img style : "width=200px;height=200px" ng-src="{{imageSrc}}" />
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info btn-lg">Load</button>
+    </form>
+
+
+    <script src="/angular-1.2.17.js">
+    </script>
+    <script>
+        function appController($scope, $http) {
+            /*$http directive is used to communicate ot the server */
+            $scope.data = {}
+            $scope.response = {}
+            $scope.send = function() {
+                /*executed when submit is clicked*/
+                console.log("inside click");
+                console.log($scope.data.textdata);
+                var posting = $http({
+                    method: 'Get',
+                    /*posting to /post */
+                    url: '/get',
+                    data: $scope.data,
+                    processData: false
+                })
+                posting.success(function(response) {
+                    /*executed when server responds back*/
+                    console.log(response);
+                    $scope.response.data = response;
+                });
+            }
+        };
+    </script>
+
+    <footer style="
+    margin-top: 294;
+    padding-bottom: 0;
+    padding-top: 80;
+    background: black;
+">
+        <div class="container" style="line-height:3.2">
+
+            <div class="text-center">
+
+                <ul class="list-inline">
+                    <p style="font-size: 11px;
+  font-family: Montserrat;
+  color: rgb(146, 146, 146);
+  line-height: 2.2;margin-left: -1000;">© 2017 WICKETS.TV - All Rights Reserved.</p>
+
+                </ul>
+            </div>
+
+
+
+        </div>
+    </footer>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
